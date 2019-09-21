@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">dishy_app</string>
+    <string name="app_name">Dishy Application</string>
+    <string name="title_bottom_home">Trang Chủ</string>
+    <string name="title_bottom_notify">Thông Báo</string>
+    <string name="title_bottom_user">Cá Nhân</string>
+    <string name="title_bottom_create_recipe">Tạo Công Thức</string>
+    <string name="title_bottom_history">Lịch Sử</string>
+    <string name="title_bottom_album">Sưu Tập</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
