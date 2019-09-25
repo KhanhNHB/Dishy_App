@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import com.example.dishy_app.R;
 import com.example.dishy_app.adaptes.FragementStepCreateRecipeAdapter;
+import com.example.dishy_app.fragments.CreateRecipeStepOneFragment;
+import com.example.dishy_app.fragments.CreateRecipeStepTwoFragment;
 
 
 import java.io.IOException;
@@ -42,6 +44,23 @@ public class CreateRecipeActivity extends AppCompatActivity  {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        CreateRecipeStepOneFragment.mOnNextStepListener =  new CreateRecipeStepOneFragment.OnNextStepListener() {
+            @Override
+            public void onNextStepWto(int nextPage) {
+                mViewPager.setCurrentItem(nextPage);
+            }
+        };
+        CreateRecipeStepTwoFragment.mOnStepTwoClickListener =  new CreateRecipeStepTwoFragment.OnStepTwoClickListener() {
+            @Override
+            public void onClick(int pager) {
+                mViewPager.setCurrentItem(pager);
+            }
+        };
     }
 
     private void initView(){
