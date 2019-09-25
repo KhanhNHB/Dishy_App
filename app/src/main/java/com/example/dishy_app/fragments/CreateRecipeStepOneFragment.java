@@ -16,24 +16,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
+
 import android.widget.TextView;
 
 import com.example.dishy_app.R;
+import com.example.dishy_app.bottomSheets.BottomSheetChooseOption;
+import com.example.dishy_app.bottomSheets.CallBackOption;
+import com.example.dishy_app.models.ChooseOptionBottomSheet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateRecipeStepOneFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private static int PICK_IMAGE_REQUEST = 1311;
-
     private View mView;
     private ImageView mImgAvatar;
     private TextView mTxtLevelRecipe;
     private Uri mUriAvatar;
     private Toolbar mToolbar;
-    private Spinner mSpnLevelRecipe;
+    private Button mBtnNextStep;
+    private List<ChooseOptionBottomSheet> mLevelRecipes;
+    public static OnNextStepListener mOnNextStepListener;
+
+
+    //interface to click nextStep
+    public interface OnNextStepListener {
+        void onNextStepWto(int nextPage);
+    }
 
     public static CreateRecipeStepOneFragment newInstance() {
         CreateRecipeStepOneFragment fragment = new CreateRecipeStepOneFragment();
@@ -76,24 +88,29 @@ public class CreateRecipeStepOneFragment extends Fragment implements View.OnClic
 
     private void initView() {
         mImgAvatar = mView.findViewById(R.id.img_avatar_recipe);
-
-        mSpnLevelRecipe = mView.findViewById(R.id.sp_level_recipe);
-        mTxtLevelRecipe = mView.findViewById(R.id.txt_level_recipe);
+        mBtnNextStep = mView.findViewById(R.id.btn_next_step);
+        mTxtLevelRecipe = mView.findViewById(R.id.txt_level_repice);
     }
 
     private void initData() {
         mImgAvatar.setOnClickListener(this);
-        mSpnLevelRecipe.setOnItemSelectedListener(this);
+        mBtnNextStep.setOnClickListener(this);
+        mTxtLevelRecipe.setOnClickListener(this);
+    }
 
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.level_recip, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        mSpnLevelRecipe.setAdapter(adapter);
-
+    public void showBottomSheetLevelRepice() {
+        mLevelRecipes = new ArrayList<>();
+        mLevelRecipes.add(new ChooseOptionBottomSheet(1, "Dễ"));
+        mLevelRecipes.add(new ChooseOptionBottomSheet(2, "Trung Bình"));
+        mLevelRecipes.add(new ChooseOptionBottomSheet(3, "Khó"));
+        BottomSheetChooseOption bottomSheetLevelRecipe = new BottomSheetChooseOption(getContext(), "Độ Khó", mLevelRecipes);
+        bottomSheetLevelRecipe.show(getChildFragmentManager(), "levelRecipeRecord");
+        bottomSheetLevelRecipe.getChooseString(new CallBackOption() {
+            @Override
+            public void chooseOption(ChooseOptionBottomSheet method, int position) {
+                mTxtLevelRecipe.setText(method.getName());
+            }
+        });
     }
 
 
@@ -112,6 +129,12 @@ public class CreateRecipeStepOneFragment extends Fragment implements View.OnClic
         switch (view.getId()) {
             case R.id.img_avatar_recipe:
                 pickFromGallery();
+                break;
+            case R.id.btn_next_step:
+                mOnNextStepListener.onNextStepWto(1);
+                break;
+            case R.id.txt_level_repice:
+                showBottomSheetLevelRepice();
                 break;
         }
     }
