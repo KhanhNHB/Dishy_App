@@ -70,7 +70,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     setPageHome();
                 } else if (position == 1) {
                     setPageHistory();
-
                 } else if (position == 2) {
                     setPageAlbum();
 
