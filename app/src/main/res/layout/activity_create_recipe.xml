@@ -14,7 +14,9 @@
         android:background="@color/colorMain"
         app:navigationIcon="@drawable/ic_keyboard_return"
         app:title="Tạo Công Thức"
-        app:titleTextColor="@color/colorWhite"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/colorWhite">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:gravity="center"
