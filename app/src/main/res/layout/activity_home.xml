@@ -38,9 +38,11 @@
                     android:src="@drawable/ic_search" />
 
                 <EditText
+                    android:id="@+id/edt_search_home"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
+                    android:focusableInTouchMode="true"
                     android:hint="Nhập sản phẩm cần tìm kiếm"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -232,4 +234,5 @@
             android:textSize="11sp"
             android:textStyle="bold" />
     </FrameLayout>
+
 </LinearLayout>
