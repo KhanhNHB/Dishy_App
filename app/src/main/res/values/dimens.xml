@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp170">170dp</dimen>
+    <dimen name="dp140">140dp</dimen>
+    <dimen name="dp250">250dp</dimen>
+    <dimen name="dp160">160dp</dimen>
+    <dimen name="dp220">220dp</dimen>
+    <dimen name="dp180">180dp</dimen>
+</resources>

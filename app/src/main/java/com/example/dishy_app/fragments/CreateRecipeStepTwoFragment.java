@@ -74,7 +74,7 @@ public class CreateRecipeStepTwoFragment extends Fragment implements View.OnClic
         mEdtMaterialName = mView.findViewById(R.id.edt_name_nl);
         mLLUnit = mView.findViewById(R.id.ll_nguyen_lieu_1);
         mImgAddNewMaterial = mView.findViewById(R.id.img_button_add);
-        mTxtUnit = mView.findViewById(R.id.txt_don_vi);
+        mTxtUnit = mView.findViewById(R.id.txt_unit);
         mEdtQuality = mView.findViewById(R.id.edt_quality_material);
         mBtnNexStep = mView.findViewById(R.id.btn_next_step_wto);
         mRecyclerView = mView.findViewById(R.id.rcv_item_material);
@@ -245,7 +245,7 @@ public class CreateRecipeStepTwoFragment extends Fragment implements View.OnClic
                 String name = mEdtMaterialName.getText().toString();
                 String qualityStr = mEdtQuality.getText().toString().trim();
                 Double quality = Double.parseDouble(qualityStr.equals("") ? "0" : qualityStr);
-                String unit = (mTxtUnit.getText().toString() == null || mTxtUnit.getText().toString().equals("")) ? "" : txtUnitDialog.getText().toString();
+                String unit = mTxtUnit.getText().toString();
                 Material material = new Material(name, quality, unit);
                 showDialogToEditMaterilOne(material);
                 break;

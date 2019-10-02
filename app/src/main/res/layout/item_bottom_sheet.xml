@@ -5,9 +5,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_marginBottom="@dimen/dp20"
-        android:layout_marginTop="@dimen/dp16"
         android:layout_width="match_parent"
+        android:padding="@dimen/dp10"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp23"
         android:orientation="horizontal"
@@ -16,7 +15,7 @@
             android:id="@+id/rd_bottom_sheet"
             android:layout_gravity="center_vertical"
             android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/dp20"
+            android:layout_height="@dimen/dp23"
             android:layout_weight="1"
             />
         <TextView
@@ -28,6 +27,7 @@
             android:layout_weight="9"
             android:lineHeight="@dimen/sp18"
             android:text="values"
+            android:gravity="center_vertical"
             android:textSize="@dimen/sp15" />
     </LinearLayout>
 </LinearLayout>

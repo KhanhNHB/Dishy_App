@@ -13,5 +13,7 @@
     <string name="nh_p_n_i_dung_c_ng_th_c">Nhập nội dung công thức</string>
     <string name="next_step">Bước tiếp theo</string>
     <string name="done">Hoàn Tất</string>
+    <string name="danh_s_ch_c_ng_th_c">Danh sách công thức</string>
+    <string name="material">Nguyên liêu</string>
 
 </resources>
