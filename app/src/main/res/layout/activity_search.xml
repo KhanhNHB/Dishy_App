@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".activities.SearchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:background="@color/colorMain"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_arrow_back_black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_form_search"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="Nhập sản phẩm cần tìm kiếm"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notifications_home" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_filter_list_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Bộ lọc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_sort_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Sắp xếp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_history_black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Xem gần đây" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerResult"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp0"
+            android:layout_weight="8.9">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/suggestionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="Tìm nhanh"
+            android:textSize="@dimen/dp16" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQuickSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="Tìm kiếm gần đây:"
+            android:textSize="@dimen/dp16" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtLastSearch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="Sườn xào chua ngọt"
+                android:textColor="@color/colorBlue" />
+
+            <TextView
+                android:id="@+id/txtLastSearch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="Cánh gà chiên nước mắm"
+                android:textColor="@color/colorBlue" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

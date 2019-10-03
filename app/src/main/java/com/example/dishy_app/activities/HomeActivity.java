@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTxtHome, mTxtHistory, mTxtAlbum, mTxtUser;
     private ImageView mImgHome, mImgHistory, mImgAlbum, mImgUser;
     private ImageView mImgChef;
+    private EditText mEdtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mImgAlbum = findViewById(R.id.img_icon_album);
         mImgUser = findViewById(R.id.img_icon_user);
         mImgChef = findViewById(R.id.img_chef);
+        mEdtSearch = findViewById(R.id.edt_search_home);
     }
 
     private void initData() {
@@ -54,6 +57,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mLLAlbum.setOnClickListener(this);
         mLLUser.setOnClickListener(this);
         mImgChef.setOnClickListener(this);
+        mEdtSearch.setOnClickListener(this);
 
         mFragmentHomeAdapter = new FragmentHomeAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mFragmentHomeAdapter);
@@ -155,6 +159,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.img_chef:
                 onMoveToCreateRecipeActivity();
+                break;
+            case R.id.edt_search_home:
+                Intent intent =  new Intent(HomeActivity.this,SearchActivity.class);
+                startActivity(intent);
                 break;
         }
     }

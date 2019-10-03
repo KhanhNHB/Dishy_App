@@ -6,6 +6,10 @@
     <color name="colorMain">#C5392F</color>
     <color name="colorWhite">#fff</color>
     <color name="colorGray">#BEBBBB</color>
+<<<<<<< HEAD
     <color name="colorBlack">#000</color>
     <color name="colortemp">#8BC34A</color>
+=======
+    <color name="colorBlue">#0000FF</color>
+>>>>>>> e635561e7f43b669d6e00cca8c9096ffdc36f2f9
 </resources>
