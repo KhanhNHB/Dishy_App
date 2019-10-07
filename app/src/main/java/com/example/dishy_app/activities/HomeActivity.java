@@ -22,8 +22,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout mLLHome, mLLHistory, mLLAlbum, mLLUser;
     private TextView mTxtHome, mTxtHistory, mTxtAlbum, mTxtUser;
     private ImageView mImgHome, mImgHistory, mImgAlbum, mImgUser;
+<<<<<<< HEAD
     private ImageView mImgChef;
     private TextView mEdtSearch;
+=======
+    private ImageView mImgChef, mImgNotfy;
+>>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mImgAlbum = findViewById(R.id.img_icon_album);
         mImgUser = findViewById(R.id.img_icon_user);
         mImgChef = findViewById(R.id.img_chef);
+<<<<<<< HEAD
         mEdtSearch = findViewById(R.id.edt_search_home);
+=======
+        mImgNotfy = findViewById(R.id.ic_notification);
+>>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
     }
 
     private void initData() {
@@ -57,8 +65,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mLLAlbum.setOnClickListener(this);
         mLLUser.setOnClickListener(this);
         mImgChef.setOnClickListener(this);
+<<<<<<< HEAD
         mEdtSearch.setOnClickListener(this);
 
+=======
+        mImgNotfy.setOnClickListener(this);
+>>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
         mFragmentHomeAdapter = new FragmentHomeAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mFragmentHomeAdapter);
         mViewPager.setCurrentItem(0);
@@ -67,7 +79,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
@@ -76,12 +87,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     setPageHistory();
                 } else if (position == 2) {
                     setPageAlbum();
-
                 } else if (position == 3) {
                     setPageUser();
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -137,6 +146,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(HomeActivity.this, CreateRecipeActivity.class);
         HomeActivity.this.startActivity(intent);
     }
+    private void onMoveToNotificationActivity() {
+        Intent intent = new Intent(HomeActivity.this, NotificationActivity.class);
+        HomeActivity.this.startActivity(intent);
+    }
+
+    private void onMoveToHistoryActivity() {
+        Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+        HomeActivity.this.startActivity(intent);
+    }
 
     @Override
     public void onClick(View view) {
@@ -160,9 +178,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.img_chef:
                 onMoveToCreateRecipeActivity();
                 break;
+<<<<<<< HEAD
             case R.id.edt_search_home:
                 Intent intent =  new Intent(HomeActivity.this,SearchActivity.class);
                 startActivity(intent);
+=======
+            case R.id.ic_notification:
+                onMoveToNotificationActivity();
+                break;
+            case R.id.img_icon_history:
+                onMoveToHistoryActivity();
+>>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
                 break;
         }
     }
