@@ -23,6 +23,7 @@
 
     <LinearLayout
         android:layout_marginLeft="@dimen/dp5"
+        android:weightSum="10"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,19 +38,21 @@
             app:riv_border_color="@color/colorGray"
             app:riv_mutate_background="true"
             app:riv_oval="true"
+
             android:layout_height="@dimen/dp60"
             android:layout_width="@dimen/dp60"/>
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center_vertical"
             android:layout_marginLeft="@dimen/dp10"
-            android:layout_width="match_parent"
+            android:layout_weight="8"
+            android:layout_width="@dimen/dp0"
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/txt_name_chef"
                 android:text="Nguyen Thanh Nhan"
                 android:textStyle="bold"
-                android:textSize="@dimen/sp15"
+                android:textSize="@dimen/sp16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <LinearLayout
@@ -65,7 +68,7 @@
                     android:id="@+id/txt_numer_like"
                     android:text="1000 người thích"
                     android:layout_marginLeft="@dimen/dp3"
-                    android:textSize="@dimen/sp10"
+                    android:textSize="@dimen/sp12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -82,10 +85,16 @@
                     android:id="@+id/txt_numer_recipes"
                     android:text="50 công thức"
                     android:layout_marginLeft="@dimen/dp3"
-                    android:textSize="@dimen/sp10"
+                    android:textSize="@dimen/sp12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/ic_keyboard_arrow_right"
+            android:layout_weight="1.5"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>

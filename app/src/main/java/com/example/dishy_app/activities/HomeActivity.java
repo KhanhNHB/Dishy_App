@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTxtHome, mTxtHistory, mTxtAlbum, mTxtUser;
     private ImageView mImgHome, mImgHistory, mImgAlbum, mImgUser;
     private ImageView mImgChef;
-    private EditText mEdtSearch;
+    private TextView mEdtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

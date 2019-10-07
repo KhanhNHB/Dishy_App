@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_marginTop="@dimen/dp5"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginRight="@dimen/dp15"
+    android:layout_marginLeft="@dimen/dp15"
+    android:layout_marginBottom="@dimen/dp5"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/txt_order_recipe_ca"
+        android:text="1"
+        android:background="@drawable/custom_frame_order"
+        android:textStyle="bold"
+        android:padding="@dimen/dp5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="@dimen/dp10"
+        android:gravity="center"
+        android:textSize="@dimen/sp15"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
-            android:padding="3.5dp"
+            android:padding="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageView
@@ -17,16 +32,16 @@
             android:src="@drawable/img_check"
             android:scaleType="fitXY"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp100"/>
+            android:layout_height="@dimen/dp120"/>
             <LinearLayout
-                android:background="#F1F0F0"
+                android:background="@color/colorWhite"
                 android:weightSum="5"
                 android:padding="@dimen/dp5"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                         <TextView
-                            android:text="Cánh gà chiên nước mắm giòn tan ngon ngọt"
+                            android:text="Cánh gà chiên nước mắm"
                             android:layout_marginLeft="@dimen/dp5"
                             android:textStyle="bold"
                             android:layout_gravity="center_vertical"
@@ -48,10 +63,7 @@
             android:layout_gravity="right"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:paddingTop="@dimen/dp5"
-            android:paddingBottom="@dimen/dp5"
-            android:paddingLeft="@dimen/dp10"
-            android:paddingRight="@dimen/dp10"
+            android:padding="@dimen/dp3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -83,6 +95,7 @@
             <LinearLayout
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal"
+                android:layout_marginRight="@dimen/dp2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -99,6 +112,25 @@
             <LinearLayout
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal"
+                android:layout_marginRight="@dimen/dp2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/ic_restaurant_menu_red"
+                    android:layout_width="@dimen/dp12"
+                    android:layout_height="@dimen/dp12"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/dp3"
+                    android:text="Dễ"
+                    android:textSize="@dimen/sp12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/dp2"
+                android:layout_marginBottom="@dimen/dp3"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -106,7 +138,6 @@
                     android:layout_width="@dimen/dp12"
                     android:layout_height="@dimen/dp12"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/dp3"
                     android:text="2000"
                     android:textSize="@dimen/sp12"
                     android:layout_width="wrap_content"

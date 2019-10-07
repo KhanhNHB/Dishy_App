@@ -37,14 +37,15 @@
                     android:layout_marginLeft="5dp"
                     android:src="@drawable/ic_search" />
 
-                <EditText
+                <TextView
                     android:id="@+id/edt_search_home"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
+                    android:gravity="center_vertical"
                     android:focusableInTouchMode="true"
-                    android:hint="Nhập sản phẩm cần tìm kiếm"
-                    android:textSize="10sp" />
+                    android:hint="Nhập tên món ăn hoặc công thức"
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
 

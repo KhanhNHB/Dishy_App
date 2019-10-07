@@ -38,25 +38,27 @@ public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTxtName.setText(mDishyList.get(position).getName());
         holder.mTxtTime.setText(mDishyList.get(position).getTime());
+        holder.mTxtLevelDishy.setText(mDishyList.get(position).getLevel());
+
         Picasso.Builder builder = new Picasso.Builder(mContext);
         builder.build().load(mDishyList.get(position).getImage())
                 .error(R.drawable.ic_launcher_background)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.mImgDishy);
         if (mDishyList.get(position).getStar()==1){
-            holder.mImgStar5.setVisibility(View.INVISIBLE);
-            holder.mImgStar4.setVisibility(View.INVISIBLE);
-            holder.mImgStar3.setVisibility(View.INVISIBLE);
+            holder.mImgStar1.setVisibility(View.INVISIBLE);
             holder.mImgStar2.setVisibility(View.INVISIBLE);
-        }else if (mDishyList.get(position).getStar()==2){
-            holder.mImgStar5.setVisibility(View.INVISIBLE);
+            holder.mImgStar3.setVisibility(View.INVISIBLE);
             holder.mImgStar4.setVisibility(View.INVISIBLE);
+        }else if (mDishyList.get(position).getStar()==2){
+            holder.mImgStar1.setVisibility(View.INVISIBLE);
+            holder.mImgStar2.setVisibility(View.INVISIBLE);
             holder.mImgStar3.setVisibility(View.INVISIBLE);
         }else if (mDishyList.get(position).getStar()==3){
-            holder.mImgStar5.setVisibility(View.INVISIBLE);
-            holder.mImgStar4.setVisibility(View.INVISIBLE);
+            holder.mImgStar1.setVisibility(View.INVISIBLE);
+            holder.mImgStar2.setVisibility(View.INVISIBLE);
         }else if (mDishyList.get(position).getStar()==4){
-            holder.mImgStar5.setVisibility(View.INVISIBLE);
+            holder.mImgStar1.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -67,7 +69,7 @@ public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHo
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView mImgDishy, mImgStar1, mImgStar2, mImgStar3, mImgStar4, mImgStar5;
-        private TextView mTxtName, mTxtTime;
+        private TextView mTxtName, mTxtTime,mTxtLevelDishy;
         private LinearLayout mLLFormInfo;
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,6 +83,7 @@ public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHo
             mImgStar3 = itemView.findViewById(R.id.img_star_top_dishy_3);
             mImgStar4 = itemView.findViewById(R.id.img_star_top_dishy_4);
             mImgStar5 = itemView.findViewById(R.id.img_star_top_dishy_5);
+            mTxtLevelDishy = itemView.findViewById(R.id.txt_level_top_dishy);
         }
     }
 }

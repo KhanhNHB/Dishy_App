@@ -31,4 +31,13 @@
         <item name="android:layout_marginBottom">@dimen/dp1</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="AudioFileInfoOverlayText">
+        <item name="android:paddingLeft">5px</item>
+        <item name="android:paddingBottom">5px</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:shadowColor">@color/colorBlack</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
 </resources>

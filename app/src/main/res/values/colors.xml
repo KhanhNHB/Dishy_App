@@ -5,11 +5,12 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorMain">#C5392F</color>
     <color name="colorWhite">#fff</color>
-    <color name="colorGray">#BEBBBB</color>
-<<<<<<< HEAD
+    <color name="colorGray">#E4E1E1</color>
     <color name="colorBlack">#000</color>
     <color name="colortemp">#8BC34A</color>
-=======
     <color name="colorBlue">#0000FF</color>
->>>>>>> e635561e7f43b669d6e00cca8c9096ffdc36f2f9
+    <color name="light_font">#FBFBFB</color>
+    <color name="grey_font">#ff9e9e9e</color>
+    <color name="text_shadow">#000</color>
+    <color name="text_shadow_white">#FFFFFF</color>
 </resources>

@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ic_arrow_back_black" />
+                android:src="@drawable/ic_keyboard_return" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,11 +45,12 @@
                     android:src="@drawable/ic_search" />
 
                 <EditText
+                    android:id="@+id/edt_search_sa"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:hint="Nhập sản phẩm cần tìm kiếm"
-                    android:textSize="10sp" />
+                    android:hint="Nhập tên món ăn hoặc công thức"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -68,6 +69,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="9.3"
+        android:layout_height="@dimen/dp0">
+
+    <LinearLayout
         android:id="@+id/resultLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,9 +83,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
             android:orientation="horizontal"
-            android:padding="@dimen/dp5"
+            android:padding="@dimen/dp8"
             android:weightSum="3">
 
             <LinearLayout
@@ -198,6 +204,7 @@
                 android:text="Cánh gà chiên nước mắm"
                 android:textColor="@color/colorBlue" />
         </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 
 

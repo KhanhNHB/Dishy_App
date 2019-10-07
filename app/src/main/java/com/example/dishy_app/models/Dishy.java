@@ -7,6 +7,7 @@ public class Dishy implements Serializable {
     private String image;
     private String time;
     private int star;
+    private String level;
 
     public Dishy(String name, String image, String time) {
         this.name = name;
@@ -19,6 +20,14 @@ public class Dishy implements Serializable {
         this.image = image;
         this.time = time;
         this.star = liker;
+    }
+
+    public Dishy(String name, String image, String time, int star, String level) {
+        this.name = name;
+        this.image = image;
+        this.time = time;
+        this.star = star;
+        this.level = level;
     }
 
     public String getName() {
@@ -51,5 +60,13 @@ public class Dishy implements Serializable {
 
     public void setStar(int liker) {
         this.star = liker;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

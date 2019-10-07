@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -17,18 +18,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dishy_app.R;
+import com.example.dishy_app.adaptes.BoottomSheetLevelRecipeAdapter;
 import com.example.dishy_app.adaptes.DishyTodayAdapter;
 import com.example.dishy_app.adaptes.RecipeOfChefAdapter;
+import com.example.dishy_app.bottomSheets.BottomSheetChooseOption;
+import com.example.dishy_app.bottomSheets.CallBackOption;
 import com.example.dishy_app.models.Chef;
+import com.example.dishy_app.models.ChooseOptionBottomSheet;
 import com.example.dishy_app.models.Dishy;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChefActivity extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout mLLCoverWhite;
-    private ImageView mImgCover, mImgButtonBack;
+    private ImageView mImgCover, mImgButtonBack, mImgFillter;
     private RoundedImageView mAvatar;
     private TextView mTxtNumberLiker, mTxtNumberRecipe, mTxtNameChef;
     private RecyclerView mRcvRecipe;
@@ -62,10 +68,13 @@ public class ChefActivity extends AppCompatActivity implements View.OnClickListe
         mTxtNumberLiker = findViewById(R.id.txt_number_liker_activity);
         mTxtNumberRecipe = findViewById(R.id.txt_number_recipe_activity);
         mAvatar = findViewById(R.id.riv_avatar_chef_activity);
+        mImgFillter = findViewById(R.id.img_fillter_ca);
 
         mRcvRecipe = findViewById(R.id.rcv_recip_of_chef);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(ChefActivity.this, 2);
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(ChefActivity.this, 2);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(ChefActivity.this, RecyclerView.VERTICAL, false);
         mRcvRecipe.setLayoutManager(gridLayoutManager);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -77,6 +86,8 @@ public class ChefActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         mImgButtonBack.setOnClickListener(this);
+        mImgFillter.setOnClickListener(this);
+
         mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
@@ -113,11 +124,30 @@ public class ChefActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void showBottomSheetFillter() {
+        List<ChooseOptionBottomSheet> listSort = new ArrayList<>();
+        listSort.add(new ChooseOptionBottomSheet(1, "Theo ngày đăng gần nhất"));
+        listSort.add(new ChooseOptionBottomSheet(2, "Theo ngày đăng xa nhất"));
+        listSort.add(new ChooseOptionBottomSheet(3, "Theo công thức được yêu thích nhiều nhất"));
+        listSort.add(new ChooseOptionBottomSheet(4, "Theo công thức được yêu thích ít nhất"));
+        BottomSheetChooseOption bottomSheetChooseOption = new BottomSheetChooseOption(ChefActivity.this, "Sắp xếp", listSort);
+        bottomSheetChooseOption.show(getSupportFragmentManager(), "sortOption");
+        bottomSheetChooseOption.getChooseString(new CallBackOption() {
+            @Override
+            public void chooseOption(ChooseOptionBottomSheet method, int position) {
+
+            }
+        });
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_cover_back_butotn:
                 finish();
+                break;
+            case R.id.img_fillter_ca:
+                showBottomSheetFillter();
                 break;
         }
     }

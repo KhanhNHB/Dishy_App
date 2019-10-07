@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,7 @@ public class RecipeOfChefAdapter extends RecyclerView.Adapter<RecipeOfChefAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.mtxtOrder.setText(String.valueOf(position+1));
     }
 
     @Override
@@ -41,8 +42,10 @@ public class RecipeOfChefAdapter extends RecyclerView.Adapter<RecipeOfChefAdapte
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView mtxtOrder,mtxtName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mtxtOrder = itemView.findViewById(R.id.txt_order_recipe_ca);
         }
     }
 }

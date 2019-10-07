@@ -9,6 +9,7 @@
         android:id="@+id/txt_order_make_step_rcv_ra"
         android:text="Bước 1"
         android:textStyle="bold"
+        android:textSize="@dimen/sp18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <androidx.viewpager.widget.ViewPager
@@ -37,6 +38,8 @@
     <TextView
         android:id="@+id/txt_make_step_des_rcv"
         android:inputType="textMultiLine"
+        android:textSize="@dimen/sp16"
+        android:layout_marginLeft="@dimen/dp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

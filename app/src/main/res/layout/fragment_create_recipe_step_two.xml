@@ -24,7 +24,7 @@
                 android:layout_marginTop="@dimen/dp5"
                 android:layout_marginRight="@dimen/dp10"
                 android:text="II.Nguyên Liệu"
-                android:textSize="@dimen/sp15"
+                android:textSize="@dimen/sp18"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -71,13 +71,14 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:text="Tên nguyên liệu"
+                                    android:textSize="@dimen/sp16"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
                                 <EditText
                                     android:id="@+id/edt_name_nl"
                                     android:background="@drawable/custom_frame_input"
                                     android:layout_width="match_parent"
-
+                                    android:textSize="@dimen/sp16"
                                     android:padding="@dimen/dp5"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -90,6 +91,7 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:text="Số lượng nguyên liệu"
+                                    android:textSize="@dimen/sp16"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
                                 <EditText
@@ -97,6 +99,7 @@
                                     android:background="@drawable/custom_frame_input"
                                     android:layout_width="match_parent"
                                     android:inputType="number"
+                                    android:textSize="@dimen/sp16"
                                     android:padding="@dimen/dp5"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -124,6 +127,7 @@
                                         android:id="@+id/txt_unit"
                                         android:layout_weight="9"
                                         android:text="Chưa chọn"
+                                        android:textSize="@dimen/sp16"
                                         android:gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/dp5"
                                         android:layout_width="@dimen/dp0"
@@ -166,7 +170,7 @@
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:gravity="center"
-                    android:textSize="@dimen/sp12"
+                    android:textSize="@dimen/sp14"
                     android:text="Ấn vào để thêm nguyên liệu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

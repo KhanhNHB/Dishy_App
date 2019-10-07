@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_marginRight="@dimen/dp5"
     android:layout_height="wrap_content">
 
     <FrameLayout
@@ -9,25 +10,24 @@
         <ImageView
             android:id="@+id/img_dishy_top"
             android:scaleType="fitXY"
-            android:padding="3.5dp"
+            android:padding="2dp"
             android:layout_width="@dimen/dp150"
-            android:layout_height="@dimen/dp100"/>
+            android:layout_height="@dimen/dp120"/>
         <ImageView
             android:src="@drawable/custom_frame_border_image"
             android:layout_width="@dimen/dp150"
-            android:layout_height="@dimen/dp100"/>
+            android:layout_height="@dimen/dp120"/>
 
         <LinearLayout
             android:id="@+id/ll_form_info_top_dishy"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginRight="@dimen/dp10"
             android:orientation="horizontal"
-            android:background="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:background="@color/colorGray"
+                android:background="#FF9800"
                 android:layout_width="@dimen/dp3"
                 android:layout_height="match_parent"/>
             <LinearLayout
@@ -35,53 +35,81 @@
                 android:layout_marginLeft="@dimen/dp3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_gravity="right"
-                    android:orientation="horizontal"
-                    android:layout_marginRight="@dimen/dp5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/img_star_top_dishy_5"
-                        android:src="@drawable/ic_star_yellow"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"/>
-                    <ImageView
-                        android:id="@+id/img_star_top_dishy_4"
-                        android:src="@drawable/ic_star_yellow"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"/>
-                    <ImageView
-                        android:id="@+id/img_star_top_dishy_3"
-                        android:src="@drawable/ic_star_yellow"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"/>
-                    <ImageView
-                        android:id="@+id/img_star_top_dishy_2"
-                        android:src="@drawable/ic_star_yellow"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"/>
-                    <ImageView
-                        android:id="@+id/img_star_top_dishy_1"
-                        android:src="@drawable/ic_star_yellow"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"/>
-                </LinearLayout>
                 <TextView
                     android:id="@+id/txt_name_dishy_top"
                     android:text="pho"
+                    style="@style/AudioFileInfoOverlayText"
                     android:textStyle="bold"
-                    android:layout_marginRight="@dimen/dp5"
+                    android:textSize="@dimen/sp16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/txt_time_dishy_top"
                     android:text="10 phút"
+                    style="@style/AudioFileInfoOverlayText"
                     android:layout_marginBottom="@dimen/dp3"
-                    android:textSize="@dimen/sp10"
+                    android:textSize="@dimen/sp13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:padding="@dimen/dp5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:gravity="left"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_star_top_dishy_5"
+                android:src="@drawable/ic_star_yellow"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+            <ImageView
+                android:id="@+id/img_star_top_dishy_4"
+                android:src="@drawable/ic_star_yellow"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+            <ImageView
+                android:id="@+id/img_star_top_dishy_3"
+                android:src="@drawable/ic_star_yellow"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+            <ImageView
+                android:id="@+id/img_star_top_dishy_2"
+                android:src="@drawable/ic_star_yellow"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+            <ImageView
+                android:id="@+id/img_star_top_dishy_1"
+                android:src="@drawable/ic_star_yellow"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="5"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/dp5"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/ic_restaurant_menu"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"/>
+            <TextView
+                android:id="@+id/txt_level_top_dishy"
+                android:text="Trung bình"
+                android:layout_marginLeft="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

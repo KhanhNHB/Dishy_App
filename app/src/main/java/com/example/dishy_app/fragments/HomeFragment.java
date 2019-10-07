@@ -95,9 +95,9 @@ public class HomeFragment extends Fragment {
         updateUIRcvDishyToDay(mDishyList);
 
         mTopDishy = new ArrayList<>();
-        mTopDishy.add(new Dishy("Bánh tráng trộn", "https://www.foodpanda.vn/wp-content/uploads/2019/03/anh9.jpg", "24 phút",5));
-        mTopDishy.add(new Dishy("Lẩu gà lá giang", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkQMisNfkjeHfRjc_6ef9gm-qoPL7arQNCz4qm5ysERfkg6bg", "20 phút",3));
-        mTopDishy.add(new Dishy("Mì cay", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVypO1DvgzVKT5D8kxt1SVbSG4_coB3_bUkC526_-JB6zF-ajq", "18 phút",2));
+        mTopDishy.add(new Dishy("Bánh tráng trộn", "https://www.foodpanda.vn/wp-content/uploads/2019/03/anh9.jpg", "24 phút",5,"Khó"));
+        mTopDishy.add(new Dishy("Lẩu gà lá giang", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkQMisNfkjeHfRjc_6ef9gm-qoPL7arQNCz4qm5ysERfkg6bg", "20 phút",3,"Dễ"));
+        mTopDishy.add(new Dishy("Mì cay", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVypO1DvgzVKT5D8kxt1SVbSG4_coB3_bUkC526_-JB6zF-ajq", "18 phút",2,"Trung bình"));
         updateUIRcvTopDishy(mTopDishy);
 
         mChefs =  new ArrayList<>();

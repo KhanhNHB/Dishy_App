@@ -9,15 +9,24 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-<<<<<<< HEAD
-        <activity android:name=".activities.RecipeActivity"></activity>
-        <activity android:name=".activities.ChefActivity" />
-        <activity android:name=".activities.DetailActivity" />
-=======
-        <activity android:name=".activities.SearchActivity"></activity>
-        <activity android:name=".activities.SplashActivity" />
-        <activity android:name=".activities.CreateRecipeActivity" />
->>>>>>> e635561e7f43b669d6e00cca8c9096ffdc36f2f9
+
+        <activity
+            android:name=".activities.RecipeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".activities.ChefActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.DetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
+
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -28,16 +37,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity
             android:name=".activities.CreateRecipeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-=======
->>>>>>> e635561e7f43b669d6e00cca8c9096ffdc36f2f9
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

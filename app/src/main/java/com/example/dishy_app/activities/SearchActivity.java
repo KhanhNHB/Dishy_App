@@ -5,8 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +40,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     private TextView txtLastSearch1;
     private TextView txtLastSearch2;
+    private EditText edtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +55,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         txtLastSearch1.setOnClickListener(this);
         txtLastSearch2.setOnClickListener(this);
         recyclerViewQuick.setOnClickListener(this);
-
-
-
+        edtSearch.requestFocus();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         itemsResults = new ArrayList<>();
         itemsResults.add(new ItemsResult("Cơm cuộn hàn quốc", "1.1k", "Thanh Nhàn", "30ph", "Ăn chính", "Dễ", R.drawable.ic_favorite_red, "9 công thức", "http://www.monngon.tv/uploads/images/images/maxresdefault-9(2).jpg", "https://scontent.fsgn10-1.fna.fbcdn.net/v/t1.0-9/61090498_1285841494925963_1183091008456359936_n.jpg?_nc_cat=101&_nc_oc=AQku48FA2VJMthy4eielu0KedlmEBsZv4FU9fcdsRZJtcGwPZ3dUVSTgrRVO0X4OhCw&_nc_ht=scontent.fsgn10-1.fna&oh=a5d303ff39ed42210e11999740d8be57&oe=5DF0D403"));
         itemsResults.add(new ItemsResult("Cánh gà chiên nước mắm", "1.3k", "Minh Thành", "40ph", "Ăn chính", "Dễ", R.drawable.ic_favorite_border_black, "6 công thức", "http://www.monngon.tv/uploads/images/images/maxresdefault-9(2).jpg", "https://scontent.fsgn10-1.fna.fbcdn.net/v/t1.0-9/42702447_309972646225392_437175461110349824_n.jpg?_nc_cat=107&_nc_oc=AQnA-0M1W6GKpUejN3uQGUc8WEouDVZ-uz0HUsR84pWBfFGrwD6AAz-NmevnQjYckpI&_nc_ht=scontent.fsgn10-1.fna&oh=15b8fb2304ba389770ab8d5ea8d4a030&oe=5E34D96E"));
@@ -95,6 +101,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         layout1.setVisibility(View.GONE);
         layout2.setVisibility(View.VISIBLE);
+
+        edtSearch = findViewById(R.id.edt_search_sa);
     }
 
     private void showResult() {
