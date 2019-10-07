@@ -2,32 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dishy_app">
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET"/>
-=======
-    <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
+
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
-<<<<<<< HEAD
-        android:label="DISHY"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.FullScreen">
-=======
-        android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme.FullScreen">
         <activity android:name=".activities.HistoryActivity"></activity>
         <activity android:name=".activities.NotificationActivity" />
-        <activity android:name=".activities.SplashActivity" />
+
         <activity android:name=".activities.CreateRecipeActivity" />
->>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
+
         <activity
             android:name=".activities.RecipeActivity"
             android:screenOrientation="portrait"
@@ -55,23 +46,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".activities.SignUpActivity"></activity>
 
         <activity android:name=".activities.SignInActivity">
 
         </activity>
 
-        <activity
-            android:name=".activities.CreateRecipeActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".activities.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-=======
->>>>>>> c8cee97aee37cc1ef3c92b557f6bd304696d10c2
+
     </application>
 
 </manifest>
