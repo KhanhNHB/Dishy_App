@@ -42,7 +42,7 @@
             android:layout_height="@dimen/dp120"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@mipmap/logo" />
+            android:src="@drawable/ic_dinner" />
     </LinearLayout>
 
     <LinearLayout

@@ -151,6 +151,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         HomeActivity.this.startActivity(intent);
     }
 
+    private void onMoveToSearchActivity() {
+        Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
+        HomeActivity.this.startActivity(intent);
+    }
 
     @Override
     public void onClick(View view) {
@@ -176,8 +180,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.edt_search_home:
-                Intent intent =  new Intent(HomeActivity.this,SearchActivity.class);
-                startActivity(intent);
+                onMoveToSearchActivity();
+                break;
 
             case R.id.ic_notification:
                 onMoveToNotificationActivity();

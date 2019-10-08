@@ -22,6 +22,7 @@ import com.example.dishy_app.adaptes.TopChefAdapter;
 import com.example.dishy_app.adaptes.TopDishyAdapter;
 import com.example.dishy_app.models.Chef;
 import com.example.dishy_app.models.Dishy;
+import com.example.dishy_app.models.StepMake;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,28 +77,20 @@ public class HomeFragment extends Fragment {
 
     private void initData() {
         mDishyList = new ArrayList<>();
-        mDishyList.add(new Dishy("Gà chiên nước mắm", "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg", "20 phút"));
-        mDishyList.add(new Dishy("Bún xào", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHRH7Sp01qPkD-dBS9yDZIIpbJ8QZq--wh0SNQ9xnuwc0ugSt", "10 phút"));
-        mDishyList.add(new Dishy("Lẩu thái", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXn0VHYu8va-oMEc-E60pPIdeWZXm7edf4LRcYD7fXdf6Rf_o", "34 phút"));
-        mDishyList.add(new Dishy("Cơm cuộn", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút"));
-        mDishyList.add(new Dishy("Gà chiên nước mắm", "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg", "20 phút"));
-        mDishyList.add(new Dishy("Bún xào", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHRH7Sp01qPkD-dBS9yDZIIpbJ8QZq--wh0SNQ9xnuwc0ugSt", "10 phút"));
-        mDishyList.add(new Dishy("Lẩu thái", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXn0VHYu8va-oMEc-E60pPIdeWZXm7edf4LRcYD7fXdf6Rf_o", "34 phút"));
-        mDishyList.add(new Dishy("Cơm cuộn", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút"));
-        mDishyList.add(new Dishy("Gà chiên nước mắm", "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg", "20 phút"));
-        mDishyList.add(new Dishy("Bún xào", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHRH7Sp01qPkD-dBS9yDZIIpbJ8QZq--wh0SNQ9xnuwc0ugSt", "10 phút"));
-        mDishyList.add(new Dishy("Lẩu thái", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXn0VHYu8va-oMEc-E60pPIdeWZXm7edf4LRcYD7fXdf6Rf_o", "34 phút"));
-        mDishyList.add(new Dishy("Cơm cuộn", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút"));
-        mDishyList.add(new Dishy("Gà chiên nước mắm", "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg", "20 phút"));
-        mDishyList.add(new Dishy("Bún xào", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHRH7Sp01qPkD-dBS9yDZIIpbJ8QZq--wh0SNQ9xnuwc0ugSt", "10 phút"));
-        mDishyList.add(new Dishy("Lẩu thái", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXn0VHYu8va-oMEc-E60pPIdeWZXm7edf4LRcYD7fXdf6Rf_o", "34 phút"));
-        mDishyList.add(new Dishy("Cơm cuộn", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút"));
+        mDishyList.add(new Dishy("Mì Trường Thọ", "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?cs=srgb&amp;dl=asian-food-bowl-food-photography-3026808.jpg&amp;fm=jpg", "20 phút"));
+        mDishyList.add(new Dishy("Gà sốt phô mai", "https://znews-photo.zadn.vn/w660/Uploaded/Ohunoaa/2016_12_31/d6.jpg", "10 phút"));
+        mDishyList.add(new Dishy("Lẩu thái", "https://bepmenau.com/wp-content/uploads/2018/05/Lau-Thai-hai-san_8_1.1.359_1124X1685.jpeg", "34 phút"));
+        mDishyList.add(new Dishy("Kimbap chiên xù", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút"));
+        mDishyList.add(new Dishy("Bánh chocolate", "https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?cs=srgb&amp;dl=avocado-chocolate-dessert-3026810.jpg&amp;fm=jpg", "26 phút"));
+        mDishyList.add(new Dishy("Tôm ghim chua ngọt", "https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?cs=srgb&amp;dl=chopsticks-cuisine-delicious-699544.jpg&amp;fm=jpg", "20 phút"));
+        mDishyList.add(new Dishy("Bún đậu mắm tôm","https://vnn-imgs-f.vgcloud.vn/2018/09/18/12/cach-lam-bun-dau-mam-tom-ngon-nhu-cua-ba-noi-phim-gao-nep-gao-te.jpg","15 phút"));
         updateUIRcvDishyToDay(mDishyList);
 
         mTopDishy = new ArrayList<>();
-        mTopDishy.add(new Dishy("Bánh tráng trộn", "https://www.foodpanda.vn/wp-content/uploads/2019/03/anh9.jpg", "24 phút",5,"Khó"));
-        mTopDishy.add(new Dishy("Lẩu gà lá giang", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkQMisNfkjeHfRjc_6ef9gm-qoPL7arQNCz4qm5ysERfkg6bg", "20 phút",3,"Dễ"));
-        mTopDishy.add(new Dishy("Mì cay", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVypO1DvgzVKT5D8kxt1SVbSG4_coB3_bUkC526_-JB6zF-ajq", "18 phút",2,"Trung bình"));
+        mTopDishy.add(new Dishy("Bánh tráng trộn", "https://i.ytimg.com/vi/8lNLepEuR8I/maxresdefault.jpg", "24 phút",5,"Khó"));
+        mTopDishy.add(new Dishy("Lẩu gà lá giang", "https://cdn.daynauan.info.vn/wp-content/uploads/2018/07/lau-ga-la-giang.jpg", "20 phút",3,"Dễ"));
+        mTopDishy.add(new Dishy("Mì cay", "https://cdn.tgdd.vn/Files/2016/07/26/863246/cach-lam-mi-cay-3-cap-do-cho-ngay-mua-them-am-bung4.jpg", "18 phút",2,"Trung bình"));
+        mTopDishy.add(new Dishy("Hamburger thịt bò","https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?cs=srgb&amp;dl=burger-cheeseburger-close-up-1199960.jpg&amp;fm=jpg","Dễ",4,"Dễ"));
         updateUIRcvTopDishy(mTopDishy);
 
         mChefs =  new ArrayList<>();
