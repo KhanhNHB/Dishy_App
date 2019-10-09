@@ -18,8 +18,16 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHolder> {
+    public interface OnTopDishy {
+        void onClick(Dishy dishy);
+    }
     private Context mContext;
     private List<Dishy> mDishyList;
+    private OnTopDishy mOnTopDishy;
+
+    public void setmOnTopDishy(OnTopDishy mOnTopDishy) {
+        this.mOnTopDishy = mOnTopDishy;
+    }
 
     public TopDishyAdapter(Context mContext, List<Dishy> mDishyList) {
         this.mContext = mContext;
@@ -35,7 +43,7 @@ public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.mTxtName.setText(mDishyList.get(position).getName());
         holder.mTxtTime.setText(mDishyList.get(position).getTime());
         holder.mTxtLevelDishy.setText(mDishyList.get(position).getLevel());
@@ -60,6 +68,12 @@ public class TopDishyAdapter extends RecyclerView.Adapter<TopDishyAdapter.ViewHo
         }else if (mDishyList.get(position).getStar()==4){
             holder.mImgStar1.setVisibility(View.INVISIBLE);
         }
+        holder.mLLFormInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOnTopDishy.onClick(mDishyList.get(position));
+            }
+        });
     }
 
     @Override

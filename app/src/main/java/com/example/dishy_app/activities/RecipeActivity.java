@@ -30,7 +30,7 @@ import java.util.List;
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mTxtNumberCount, mTxtNameRecipe, mTxtNameChef, mTxtNumberFavorite, mTxtFollowing, mTxtFavorite;
     private Button mBtnDiv, mBtnSum;
-    private ImageView mImgAvatarRecipe, mImgFavorite, mImgSave, mImgBack;
+    private ImageView mImgAvatarRecipe, mImgFavorite, mImgSave, mImgBack,mImgChef;
     private RoundedImageView mImgAvatarChef;
     private LinearLayout mLLChef;
     private Toolbar mToolbar;
@@ -86,6 +86,8 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mTxtNumberFavorite = findViewById(R.id.txt_number_favorite_ra);
         mTxtFollowing = findViewById(R.id.txt_following_recipe_activity);
         mTxtFavorite = findViewById(R.id.txt_number_favorite_recipe_ra);
+        mImgChef = findViewById(R.id.img_avatar_chef_ra);
+        mTxtNameChef = findViewById(R.id.txt_name_chef_ra);
     }
 
     private void initData() {
@@ -101,6 +103,14 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         builder.build().load(dishy.getImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background).into(mImgAvatarRecipe);
+
+        if (dishy.getChef()!=null){
+            builder.build().load(dishy.getChef().getAvatar())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher_background).into(mImgChef);
+            mTxtNameChef.setText(dishy.getChef().getName());
+            mTxtNumberFavorite.setText(String.valueOf(dishy.getChef().getNumberLiker()));
+        }
 
         mTxtFavorite.setText(String.valueOf(dishy.getNumberFavorite()));
         mTxtNameRecipe.setText(dishy.getName());

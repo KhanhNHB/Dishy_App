@@ -13,6 +13,7 @@ public class Dishy implements Serializable {
     private String level;
     private List<StepMake> makes;
     private List<Material> materials;
+    private Chef chef;
 
     public Dishy(String name, String image, String time, int eater, int numberFavorite) {
         this.name = name;
@@ -31,7 +32,19 @@ public class Dishy implements Serializable {
         this.numberFavorite = numberFavorite;
     }
 
-    public Dishy(String name, String image, String time, int eater, int star, String level,int numberFavorite, List<StepMake> makes, List<Material> materials) {
+    public Dishy(String name, String image, String time, int numberFavorite, int eater, int star, String level, List<StepMake> makes, List<Material> materials) {
+        this.name = name;
+        this.image = image;
+        this.time = time;
+        this.numberFavorite = numberFavorite;
+        this.eater = eater;
+        this.star = star;
+        this.level = level;
+        this.makes = makes;
+        this.materials = materials;
+    }
+
+    public Dishy(String name, String image, String time, int eater, int star, String level, int numberFavorite, List<StepMake> makes, List<Material> materials, Chef chef) {
         this.name = name;
         this.image = image;
         this.time = time;
@@ -41,6 +54,7 @@ public class Dishy implements Serializable {
         this.makes = makes;
         this.materials = materials;
         this.numberFavorite = numberFavorite;
+        this.chef = chef;
     }
 
     public String getName() {
@@ -113,5 +127,13 @@ public class Dishy implements Serializable {
 
     public void setNumberFavorite(int numberFavorite) {
         this.numberFavorite = numberFavorite;
+    }
+
+    public Chef getChef() {
+        return chef;
+    }
+
+    public void setChef(Chef chef) {
+        this.chef = chef;
     }
 }
