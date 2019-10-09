@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <pl.droidsonroids.gif.GifImageView
-            android:padding="39dp"
+            android:padding="41dp"
             android:src="@drawable/splash_cook"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -21,14 +21,14 @@
         <pl.droidsonroids.gif.GifImageView
             android:src="@drawable/loading"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="135dp"
+            android:layout_marginBottom="@dimen/dp100"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp100"/>
         <TextView
             android:text="DISHY"
             android:textSize="30sp"
             android:gravity="bottom|center_horizontal"
-            android:layout_marginBottom="195dp"
+            android:layout_marginBottom="150dp"
             android:fontFamily="casual"
             android:textColor="@color/colorMain"
             android:layout_width="match_parent"

@@ -125,10 +125,10 @@
             android:layout_height="match_parent"/>
             <ImageView
                 android:id="@+id/img_fillter_ca"
-                android:src="@drawable/ic_filter_list_black_24dp"
+                android:src="@mipmap/ic_fillter"
                 android:layout_weight="1"
                 android:layout_width="@dimen/dp0"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_recip_of_chef"

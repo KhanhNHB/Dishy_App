@@ -1,6 +1,8 @@
 package com.example.dishy_app.models;
 
-public class Material {
+import java.io.Serializable;
+
+public class Material implements Serializable {
     private String name;
     private double quality;
     private String unit;

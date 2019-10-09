@@ -7,40 +7,40 @@ public class Dishy implements Serializable {
     private String name;
     private String image;
     private String time;
+    private int numberFavorite;
+    private int eater;
     private int star;
     private String level;
     private List<StepMake> makes;
     private List<Material> materials;
 
-    public Dishy(String name, String image, String time) {
+    public Dishy(String name, String image, String time, int eater, int numberFavorite) {
         this.name = name;
         this.image = image;
         this.time = time;
+        this.eater = eater;
+        this.numberFavorite = numberFavorite;
     }
 
-    public Dishy(String name, String image, String time, int liker) {
-        this.name = name;
-        this.image = image;
-        this.time = time;
-        this.star = liker;
-    }
-
-    public Dishy(String name, String image, String time, int star, String level) {
+    public Dishy(String name, String image, String time, int star, String level, int numberFavorite) {
         this.name = name;
         this.image = image;
         this.time = time;
         this.star = star;
         this.level = level;
+        this.numberFavorite = numberFavorite;
     }
 
-    public Dishy(String name, String image, String time, int star, String level, List<StepMake> makes, List<Material> materials) {
+    public Dishy(String name, String image, String time, int eater, int star, String level,int numberFavorite, List<StepMake> makes, List<Material> materials) {
         this.name = name;
         this.image = image;
         this.time = time;
+        this.eater = eater;
         this.star = star;
         this.level = level;
         this.makes = makes;
         this.materials = materials;
+        this.numberFavorite = numberFavorite;
     }
 
     public String getName() {
@@ -97,5 +97,21 @@ public class Dishy implements Serializable {
 
     public void setMaterials(List<Material> materials) {
         this.materials = materials;
+    }
+
+    public int getEater() {
+        return eater;
+    }
+
+    public void setEater(int eater) {
+        this.eater = eater;
+    }
+
+    public int getNumberFavorite() {
+        return numberFavorite;
+    }
+
+    public void setNumberFavorite(int numberFavorite) {
+        this.numberFavorite = numberFavorite;
     }
 }

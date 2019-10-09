@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dishy_app.R;
 import com.example.dishy_app.models.Dishy;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,6 +36,12 @@ public class RecipeOfChefAdapter extends RecyclerView.Adapter<RecipeOfChefAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mtxtOrder.setText(String.valueOf(position+1));
+        holder.mtxtName.setText(mDishyList.get(position).getName());
+
+        Picasso.Builder builder = new Picasso.Builder(mContext);
+        builder.build()
+                .load(mDishyList.get(position).getImage()).error(R.drawable.ic_launcher_background).placeholder(R.drawable.ic_launcher_background)
+                .into(holder.mImgRecipe);
     }
 
     @Override
@@ -43,9 +51,12 @@ public class RecipeOfChefAdapter extends RecyclerView.Adapter<RecipeOfChefAdapte
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mtxtOrder,mtxtName;
+        private ImageView mImgRecipe;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mtxtOrder = itemView.findViewById(R.id.txt_order_recipe_ca);
+            mtxtName = itemView.findViewById(R.id.txt_name_recipe_chef);
+            mImgRecipe = itemView.findViewById(R.id.img_recipe_chef);
         }
     }
 }

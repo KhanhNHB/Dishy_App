@@ -40,8 +40,12 @@ public class StepMakeRecipeAdapter extends RecyclerView.Adapter<StepMakeRecipeAd
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mTxtOrder.setText("Bước " + (position + 1));
         holder.mTxtDescription.setText(mStepMakes.get(position).getDescrip());
-
-        mImageStepMakeAdapter = new ImageStepMakeAdapter(mContext, "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg", "https://ninhkieuhotel.vn/uploads/tours/2019_07/canh-ga-chien-nuoc-mam.jpg");
+        if (mStepMakes.get(position).isPrepairStage()){
+            holder.mTxtRepair.setVisibility(View.VISIBLE);
+        }else{
+            holder.mTxtRepair.setVisibility(View.GONE);
+        }
+        mImageStepMakeAdapter = new ImageStepMakeAdapter(mContext,mStepMakes.get(position).getUrlImgeOne(),mStepMakes.get(position).getUrlImgWto());
         holder.mViewPager.setAdapter(mImageStepMakeAdapter);
         if (mImageStepMakeAdapter.getCount()==1){
             holder.mImgDotTwo.setVisibility(View.GONE);
@@ -77,13 +81,14 @@ public class StepMakeRecipeAdapter extends RecyclerView.Adapter<StepMakeRecipeAd
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView mTxtOrder, mTxtDescription;
+        private TextView mTxtOrder, mTxtDescription,mTxtRepair;
         private ViewPager mViewPager;
         private LinearLayout mLLDots;
         private ImageView mImgDotOne,mImgDotTwo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mTxtRepair  = itemView.findViewById(R.id.txt_repair);
             mTxtOrder = itemView.findViewById(R.id.txt_order_make_step_rcv_ra);
             mTxtDescription = itemView.findViewById(R.id.txt_make_step_des_rcv);
             mViewPager = itemView.findViewById(R.id.vp_step_make_rcv_ra);

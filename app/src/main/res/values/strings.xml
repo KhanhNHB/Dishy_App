@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dishy Application</string>
+    <string name="app_name">Dishy</string>
     <string name="title_bottom_home">Trang Chủ</string>
     <string name="title_bottom_notify">Thông Báo</string>
     <string name="title_bottom_user">Cá Nhân</string>

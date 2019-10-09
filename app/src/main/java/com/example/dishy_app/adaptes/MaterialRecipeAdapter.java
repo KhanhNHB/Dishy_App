@@ -40,7 +40,7 @@ public class MaterialRecipeAdapter extends RecyclerView.Adapter<MaterialRecipeAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTxtOrder.setText(String.valueOf(position + 1));
         holder.mTxtName.setText(mMaterialList.get(position).getName());
-        double quality = Math.round((mMaterialList.get(position).getQuality()/mNumberEater)*mNumberCount);
+        double quality = Math.ceil(10*((mMaterialList.get(position).getQuality()/mNumberEater)*mNumberCount))/10;
         holder.mTxtNumber.setText(String.valueOf(quality));
         holder.mTxtUnit.setText(mMaterialList.get(position).getUnit());
     }

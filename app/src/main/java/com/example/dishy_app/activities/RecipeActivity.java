@@ -6,6 +6,8 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView mTxtNumberCount, mTxtNameRecipe;
+    private TextView mTxtNumberCount, mTxtNameRecipe, mTxtNameChef, mTxtNumberFavorite, mTxtFollowing, mTxtFavorite;
     private Button mBtnDiv, mBtnSum;
     private ImageView mImgAvatarRecipe, mImgFavorite, mImgSave, mImgBack;
     private RoundedImageView mImgAvatarChef;
@@ -39,8 +41,10 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
     private StepMakeRecipeAdapter mStepMakeRecipeAdapter;
     private List<Material> mMaterials;
     private List<StepMake> mStepMakes;
-
+    private Boolean checkFollow = false;
+    private Boolean checkLikeRecipe = false;
     private int numberCount;
+    private int numberEater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,31 +82,39 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mNestedScrollView = findViewById(R.id.nsv_recipe_activity);
         mImgBack = findViewById(R.id.img_button_back_recipe_activity);
         mToolbar = findViewById(R.id.tb_ra);
+        mTxtNameChef = findViewById(R.id.txt_name_chef_ra);
+        mTxtNumberFavorite = findViewById(R.id.txt_number_favorite_ra);
+        mTxtFollowing = findViewById(R.id.txt_following_recipe_activity);
+        mTxtFavorite = findViewById(R.id.txt_number_favorite_recipe_ra);
     }
 
     private void initData() {
         mBtnDiv.setOnClickListener(this);
         mBtnSum.setOnClickListener(this);
         mImgBack.setOnClickListener(this);
+        mTxtFollowing.setOnClickListener(this);
+        mImgFavorite.setOnClickListener(this);
 
         Dishy dishy = (Dishy) getIntent().getSerializableExtra("DISHY");
+
         Picasso.Builder builder = new Picasso.Builder(RecipeActivity.this);
         builder.build().load(dishy.getImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background).into(mImgAvatarRecipe);
+
+        mTxtFavorite.setText(String.valueOf(dishy.getNumberFavorite()));
         mTxtNameRecipe.setText(dishy.getName());
 
         mMaterials = new ArrayList<>();
-        mMaterials.add(new Material("Thịt bò", 1000, "Gram"));
-        mMaterials.add(new Material("Tỏi", 3, "Tép"));
-        mMaterials.add(new Material("Cả chua", 2000, "Gram"));
+        mMaterials = dishy.getMaterials();
+
+        numberEater = dishy.getEater();
+        mTxtNumberCount.setText(String.valueOf(numberEater));
         numberCount = Integer.parseInt(mTxtNumberCount.getText().toString().trim());
-        updateRcvMaterial(numberCount);
+
+        updateRcvMaterial(numberCount, numberEater);
         mStepMakes = new ArrayList<>();
-        mStepMakes.add(new StepMake("ahahahhahahahahahahaahh\nahahahhahahahahahahaahh", true, null, null));
-        mStepMakes.add(new StepMake("ahahahhahahahahahahaahh", true, null, null));
-        mStepMakes.add(new StepMake("ahahahhahahahahahahaahh", true, null, null));
-        mStepMakes.add(new StepMake("ahahahhahahahahahahaahh", true, null, null));
+        mStepMakes = dishy.getMakes();
         updateRcvStepMake();
 
         mToolbar.setTitle(dishy.getName());
@@ -126,9 +138,9 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void updateRcvMaterial(int numberCount) {
+    private void updateRcvMaterial(int numberCount, int numberEater) {
         if (materialRecipeAdapter == null) {
-            materialRecipeAdapter = new MaterialRecipeAdapter(RecipeActivity.this, mMaterials, 4, numberCount);
+            materialRecipeAdapter = new MaterialRecipeAdapter(RecipeActivity.this, mMaterials, numberEater, numberCount);
             mRcvMaterial.setAdapter(materialRecipeAdapter);
         } else {
             materialRecipeAdapter.update(numberCount);
@@ -154,16 +166,44 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
                     afterDiv = afterDiv - 1;
                     mTxtNumberCount.setText(String.valueOf(afterDiv));
                 }
-                updateRcvMaterial(afterDiv);
+                updateRcvMaterial(afterDiv, numberEater);
                 break;
             case R.id.btn_sum:
                 int numberSum = Integer.parseInt(mTxtNumberCount.getText().toString().trim());
                 int afterSum = numberSum + 1;
                 mTxtNumberCount.setText(String.valueOf(afterSum));
-                updateRcvMaterial(afterSum);
+                updateRcvMaterial(afterSum, numberEater);
                 break;
             case R.id.img_button_back_recipe_activity:
                 finish();
+                break;
+            case R.id.txt_following_recipe_activity:
+                int numberFavorite = Integer.parseInt(mTxtNumberFavorite.getText().toString());
+                if (checkFollow == true) {
+                    mTxtFollowing.setBackgroundResource(R.drawable.custom_frame_input);
+                    mTxtFollowing.setText("Theo dõi");
+                    mTxtNumberFavorite.setText(String.valueOf(numberFavorite - 1));
+                    mTxtFollowing.setTextColor(Color.parseColor("#6D6A6A"));
+                    checkFollow = false;
+                } else {
+                    mTxtFollowing.setBackgroundResource(R.drawable.custom_followed);
+                    mTxtFollowing.setText("Đã theo dõi");
+                    mTxtNumberFavorite.setText(String.valueOf(numberFavorite + 1));
+                    mTxtFollowing.setTextColor(Color.parseColor("#ffffff"));
+                    checkFollow = true;
+                }
+                break;
+            case R.id.img_favorite_ra:
+                int numberFavoriteRecipe = Integer.parseInt(mTxtFavorite.getText().toString());
+                if (checkLikeRecipe == true) {
+                    mImgFavorite.setImageResource(R.drawable.ic_favorite_border);
+                    mTxtFavorite.setText(String.valueOf(numberFavoriteRecipe - 1));
+                    checkLikeRecipe = false;
+                } else {
+                    mImgFavorite.setImageResource(R.drawable.ic_favorite);
+                    mTxtFavorite.setText(String.valueOf(numberFavoriteRecipe + 1));
+                    checkLikeRecipe = true;
+                }
                 break;
         }
     }

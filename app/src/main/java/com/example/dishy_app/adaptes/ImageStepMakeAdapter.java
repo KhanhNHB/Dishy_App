@@ -24,18 +24,20 @@ public class ImageStepMakeAdapter extends PagerAdapter {
         this.mContext = mContext;
         this.mImgeOne = mImgeOne;
         this.mImgWto = mImgWto;
-        mListImage = new ArrayList<>();
-        mListImage.add(mImgeOne);
-        mListImage.add(mImgWto);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        mListImage = new ArrayList<>();
+        mListImage.add(mImgeOne);
+        mListImage.add(mImgWto);
+
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_image_in_make_step_ra, null);
         ImageView imageView = view.findViewById(R.id.img_item_make_steps);
         Picasso.Builder builder = new Picasso.Builder(mContext);
-        builder.build().load(mListImage.get(position))
+        builder.build()
+                .load(mListImage.get(position))
                 .error(R.mipmap.logo).placeholder(R.mipmap.logo).into(imageView);
         container.addView(view);
         return view;
@@ -48,7 +50,7 @@ public class ImageStepMakeAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return mImgWto.equals("") ? 1 : 2;
     }
 
     @Override

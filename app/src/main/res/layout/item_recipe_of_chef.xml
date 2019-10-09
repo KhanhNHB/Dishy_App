@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/img_dishy_today"
+            android:id="@+id/img_recipe_chef"
             android:src="@drawable/img_check"
             android:scaleType="fitXY"
             android:layout_width="match_parent"
@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                         <TextView
+                            android:id="@+id/txt_name_recipe_chef"
                             android:text="Cánh gà chiên nước mắm"
                             android:layout_marginLeft="@dimen/dp5"
                             android:textStyle="bold"
