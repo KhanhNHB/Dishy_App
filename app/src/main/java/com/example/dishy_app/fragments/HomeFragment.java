@@ -113,13 +113,13 @@ public class HomeFragment extends Fragment {
         mChef1 = new Chef("https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-1/p320x320/61090498_1285841494925963_1183091008456359936_n.jpg?_nc_cat=101&_nc_oc=AQkXDsimHahDSzxF7BS9NbBvgox8P-BAyPNh2DvJlOZdkZqhBm3KS206w5f7cw1PBneiFi6EtydeF5Gf1avxxUxS&_nc_ht=scontent.fsgn5-1.fna&oh=5092122e39724a586043169cf47d0696&oe=5E2FC72F", "Nguyễn Thanh Nhàn", 100, 1000, mDishyList);
 
         mDishyList = new ArrayList<>();
-        mDishyList.add(new Dishy("Mì Trường Thọ", "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?cs=srgb&amp;dl=asian-food-bowl-food-photography-3026808.jpg&amp;fm=jpg", "20 phút", 3, 5, 53, "Trung bình", mStep1, mMaterial1));
-        mDishyList.add(new Dishy("Gà sốt phô mai", "https://znews-photo.zadn.vn/w660/Uploaded/Ohunoaa/2016_12_31/d6.jpg", "10 phút", 4, 50));
-        mDishyList.add(new Dishy("Lẩu thái", "https://bepmenau.com/wp-content/uploads/2018/05/Lau-Thai-hai-san_8_1.1.359_1124X1685.jpeg", "34 phút", 5, 50));
-        mDishyList.add(new Dishy("Kimbap chiên xù", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút", 2, 30));
-        mDishyList.add(new Dishy("Bánh chocolate", "https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?cs=srgb&amp;dl=avocado-chocolate-dessert-3026810.jpg&amp;fm=jpg", "26 phút", 4, 54));
-        mDishyList.add(new Dishy("Tôm ghim chua ngọt", "https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?cs=srgb&amp;dl=chopsticks-cuisine-delicious-699544.jpg&amp;fm=jpg", "20 phút", 4, 30));
-        mDishyList.add(new Dishy("Bún đậu mắm tôm", "https://vnn-imgs-f.vgcloud.vn/2018/09/18/12/cach-lam-bun-dau-mam-tom-ngon-nhu-cua-ba-noi-phim-gao-nep-gao-te.jpg", "15 phút", 3, 34));
+        mDishyList.add(new Dishy("Mì Trường Thọ", "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?cs=srgb&amp;dl=asian-food-bowl-food-photography-3026808.jpg&amp;fm=jpg", "20 phút", 3, 5, 3, "Trung bình", mStep1, mMaterial1));
+        mDishyList.add(new Dishy("Gà sốt phô mai", "https://znews-photo.zadn.vn/w660/Uploaded/Ohunoaa/2016_12_31/d6.jpg", "10 phút", 4, 50,3));
+        mDishyList.add(new Dishy("Lẩu thái", "https://bepmenau.com/wp-content/uploads/2018/05/Lau-Thai-hai-san_8_1.1.359_1124X1685.jpeg", "34 phút", 5, 50,4));
+        mDishyList.add(new Dishy("Kimbap chiên xù", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRqGelogsMrJv1R3tkdQXER63ewilYAUzG4UAO0KWIfSZpGWSn", "12 phút", 2, 30,4));
+        mDishyList.add(new Dishy("Bánh chocolate", "https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?cs=srgb&amp;dl=avocado-chocolate-dessert-3026810.jpg&amp;fm=jpg", "26 phút", 4, 54,3));
+        mDishyList.add(new Dishy("Tôm ghim chua ngọt", "https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?cs=srgb&amp;dl=chopsticks-cuisine-delicious-699544.jpg&amp;fm=jpg", "20 phút", 4, 30,5));
+        mDishyList.add(new Dishy("Bún đậu mắm tôm", "https://vnn-imgs-f.vgcloud.vn/2018/09/18/12/cach-lam-bun-dau-mam-tom-ngon-nhu-cua-ba-noi-phim-gao-nep-gao-te.jpg", "15 phút", 3, 34,5));
         updateUIRcvDishyToDay(mDishyList);
 
         mTopDishy = new ArrayList<>();

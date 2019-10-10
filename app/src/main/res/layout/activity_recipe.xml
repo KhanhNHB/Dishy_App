@@ -302,6 +302,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <Button
+           android:id="@+id/btn_do_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thực hiện"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:background="@color/colorMain"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
 </LinearLayout>

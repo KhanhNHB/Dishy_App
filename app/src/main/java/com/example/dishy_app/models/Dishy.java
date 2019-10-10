@@ -15,12 +15,13 @@ public class Dishy implements Serializable {
     private List<Material> materials;
     private Chef chef;
 
-    public Dishy(String name, String image, String time, int eater, int numberFavorite) {
+    public Dishy(String name, String image, String time, int eater, int numberFavorite, int star) {
         this.name = name;
         this.image = image;
         this.time = time;
         this.eater = eater;
         this.numberFavorite = numberFavorite;
+        this.star = star;
     }
 
     public Dishy(String name, String image, String time, int star, String level, int numberFavorite) {

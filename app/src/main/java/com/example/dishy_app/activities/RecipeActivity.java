@@ -24,13 +24,15 @@ import com.example.dishy_app.models.StepMake;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mTxtNumberCount, mTxtNameRecipe, mTxtNameChef, mTxtNumberFavorite, mTxtFollowing, mTxtFavorite;
-    private Button mBtnDiv, mBtnSum;
+    private Button mBtnDiv, mBtnSum, mBtnDoRecipe;
     private ImageView mImgAvatarRecipe, mImgFavorite, mImgSave, mImgBack,mImgChef;
+    private ImageView mImgStar1, mImgStar2, mImgStar3, mImgStar4, mImgStar5;
     private RoundedImageView mImgAvatarChef;
     private LinearLayout mLLChef;
     private Toolbar mToolbar;
@@ -45,6 +47,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
     private Boolean checkLikeRecipe = false;
     private int numberCount;
     private int numberEater;
+    private Dishy dishy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,12 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mTxtFavorite = findViewById(R.id.txt_number_favorite_recipe_ra);
         mImgChef = findViewById(R.id.img_avatar_chef_ra);
         mTxtNameChef = findViewById(R.id.txt_name_chef_ra);
+        mImgStar1 = findViewById(R.id.img_star_recipe_1);
+        mImgStar2 = findViewById(R.id.img_star_recipe_2);
+        mImgStar3 = findViewById(R.id.img_star_recipe_3);
+        mImgStar4 = findViewById(R.id.img_star_recipe_4);
+        mImgStar5 = findViewById(R.id.img_star_recipe_5);
+        mBtnDoRecipe = findViewById(R.id.btn_do_recipe);
     }
 
     private void initData() {
@@ -96,8 +105,9 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mImgBack.setOnClickListener(this);
         mTxtFollowing.setOnClickListener(this);
         mImgFavorite.setOnClickListener(this);
+        mBtnDoRecipe.setOnClickListener(this);
 
-        Dishy dishy = (Dishy) getIntent().getSerializableExtra("DISHY");
+        dishy = (Dishy) getIntent().getSerializableExtra("DISHY");
 
         Picasso.Builder builder = new Picasso.Builder(RecipeActivity.this);
         builder.build().load(dishy.getImage())
@@ -110,6 +120,22 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
                     .error(R.drawable.ic_launcher_background).into(mImgChef);
             mTxtNameChef.setText(dishy.getChef().getName());
             mTxtNumberFavorite.setText(String.valueOf(dishy.getChef().getNumberLiker()));
+        }
+
+        if (dishy.getStar() == 1) {
+            mImgStar2.setVisibility(View.GONE);
+            mImgStar3.setVisibility(View.GONE);
+            mImgStar4.setVisibility(View.GONE);
+            mImgStar5.setVisibility(View.GONE);
+        } else if (dishy.getStar() == 2) {
+            mImgStar3.setVisibility(View.GONE);
+            mImgStar4.setVisibility(View.GONE);
+            mImgStar5.setVisibility(View.GONE);
+        } else if (dishy.getStar() == 3) {
+            mImgStar4.setVisibility(View.GONE);
+            mImgStar5.setVisibility(View.GONE);
+        } else if (dishy.getStar() == 4) {
+            mImgStar5.setVisibility(View.GONE);
         }
 
         mTxtFavorite.setText(String.valueOf(dishy.getNumberFavorite()));
@@ -214,6 +240,12 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
                     mTxtFavorite.setText(String.valueOf(numberFavoriteRecipe + 1));
                     checkLikeRecipe = true;
                 }
+                break;
+            case R.id.btn_do_recipe:
+                Intent intent  =new Intent(RecipeActivity.this,DoRecipeActivity.class);
+                intent.putExtra("NAME",dishy.getName());
+                intent.putExtra("STEP", (Serializable) dishy.getMakes());
+                startActivity(intent);
                 break;
         }
     }
