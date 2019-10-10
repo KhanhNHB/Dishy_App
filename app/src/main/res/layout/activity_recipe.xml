@@ -145,6 +145,7 @@
             app:riv_border_width="@dimen/dp1"
             app:riv_border_color="@color/colorWhite"
             app:riv_corner_radius="@dimen/dp50" />
+
         <LinearLayout
             android:layout_marginLeft="@dimen/dp10"
             android:orientation="horizontal"
@@ -301,6 +302,102 @@
                 android:layout_marginBottom="@dimen/dp10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp10"
+            android:background="@drawable/custom_bottom_sheet"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:text="Bình luận"
+                android:textSize="@dimen/dp15"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/ll_chef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp10"
+                android:padding="@dimen/dp10">
+
+                <ImageView
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_ruby"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nguyễn Hoàng Bá Khánh"
+                        android:textSize="@dimen/sp14"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:padding="@dimen/dp5"
+                        android:text="Món này rất ngon"
+                        android:textColor="#6D6A6A"
+                        android:textSize="@dimen/sp10" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp70"
+                android:background="@drawable/custom_comment"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp10"
+                android:padding="@dimen/dp10">
+
+                <ImageView
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_chat"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Để lại bình luận công thức này"
+                        android:textSize="@dimen/sp14"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp25"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:text="Đánh giá, bình luận để giúp tác giả hoàn thiện công thức hơn"
+                        android:textColor="#6D6A6A"
+                        android:textSize="@dimen/sp10" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
