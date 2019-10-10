@@ -1,62 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/dp5"
+    >
+
+    <FrameLayout
+        android:layout_weight="3"
+        android:layout_width="@dimen/dp0"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageFood"
+            android:padding="1.6dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100"
+            android:scaleType="fitXY"
+            />
+        <ImageView
+            android:src="@drawable/custom_frame_input"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100"/>
+    </FrameLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/imgHinh"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/custom_image_border">
-
-        </ImageView>
+        android:orientation="vertical"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp0"
+        android:padding="@dimen/dp5"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/nameFood"
+                android:layout_weight="5"
+                android:layout_width="wrap_content"
+                android:maxLength="25"
+                android:layout_height="wrap_content"
+                android:text="Cơm cuộn Hàn Quốc tại nhà"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/likeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="35px"
+                android:text="3.4k"/>
+            <TextView
+                android:id="@+id/timeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="35px"
+                android:text="30ph"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txtContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:maxLength="150"
-                android:textColor="#585858"
-                ></TextView>
+                android:text="Độ khó : "/>
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái : "
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                >
                 <ImageView
+                    android:src="@drawable/ic_message_black_24dp"
                     android:layout_width="15dp"
                     android:layout_height="12dp"
-                    android:src="@mipmap/ic_chef"
-                    android:scaleType="fitXY">
-
-                </ImageView>
+                    android:scaleType="fitXY"
+                    android:layout_marginTop="2dp"
+                    ></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtTime"
-                    android:textSize="10dp">
-
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/txtTime">
                 </TextView>
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
+    <ImageView
+        android:id="@+id/like"
+        android:layout_weight="1"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite_border_black" />
 
 </LinearLayout>
