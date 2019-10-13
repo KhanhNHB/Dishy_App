@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,6 +20,9 @@ import android.widget.TextView;
 import com.example.dishy_app.R;
 import com.example.dishy_app.adaptes.QuickSearchAdapter;
 import com.example.dishy_app.adaptes.SearchAdapter;
+import com.example.dishy_app.bottomSheets.BottomSheetChooseOption;
+import com.example.dishy_app.bottomSheets.CallBackOption;
+import com.example.dishy_app.models.ChooseOptionBottomSheet;
 import com.example.dishy_app.models.ItemsQuickSearch;
 import com.example.dishy_app.models.ItemsResult;
 
@@ -37,10 +41,16 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     private LinearLayout layout1;
     private LinearLayout layout2;
+    private LinearLayout layoutBtnSort;
+    private LinearLayout layoutBtnFillter;
+    private LinearLayout layoutBtnViewHistory;
 
     private TextView txtLastSearch1;
     private TextView txtLastSearch2;
     private EditText edtSearch;
+
+    private List<ChooseOptionBottomSheet> optionBottomSheetsFilter;
+    private List<ChooseOptionBottomSheet> optionBottomSheetsSort;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +65,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         txtLastSearch1.setOnClickListener(this);
         txtLastSearch2.setOnClickListener(this);
         recyclerViewQuick.setOnClickListener(this);
+        layoutBtnSort.setOnClickListener(this);
+        layoutBtnFillter.setOnClickListener(this);
+        layoutBtnViewHistory.setOnClickListener(this);
         edtSearch.requestFocus();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         itemsResults = new ArrayList<>();
@@ -82,6 +95,16 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         updateRecycler();
 
+        optionBottomSheetsSort = new ArrayList<>();
+        optionBottomSheetsSort.add(new ChooseOptionBottomSheet(1, "Thời gian"));
+        optionBottomSheetsSort.add(new ChooseOptionBottomSheet(2, "Lượt xem"));
+        optionBottomSheetsSort.add(new ChooseOptionBottomSheet(3, "Yêu thích"));
+
+        optionBottomSheetsFilter = new ArrayList<>();
+        optionBottomSheetsFilter.add(new ChooseOptionBottomSheet(1, "Dễ"));
+        optionBottomSheetsFilter.add(new ChooseOptionBottomSheet(2, "Trung bình"));
+        optionBottomSheetsFilter.add(new ChooseOptionBottomSheet(3, "Khó"));
+
     }
 
     private void initView() {
@@ -103,11 +126,40 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         layout2.setVisibility(View.VISIBLE);
 
         edtSearch = findViewById(R.id.edt_search_sa);
+        layoutBtnSort = findViewById(R.id.ll_buttom_sort_sheet);
+        layoutBtnFillter = findViewById(R.id.ll_buttom_fillter);
+        layoutBtnViewHistory = findViewById(R.id.ll_buttom_view_history);
     }
 
     private void showResult() {
         layout1.setVisibility(View.VISIBLE);
         layout2.setVisibility(View.GONE);
+
+    }
+
+    private void bottomSheetSortUnit(){
+        BottomSheetChooseOption bottomSheetChooseOption = new BottomSheetChooseOption(this, "Sắp xếp", optionBottomSheetsSort);
+
+        bottomSheetChooseOption.show(getSupportFragmentManager(), "unitMaterial");
+        bottomSheetChooseOption.getChooseString(new CallBackOption() {
+            @Override
+            public void chooseOption(ChooseOptionBottomSheet method, int position) {
+
+            }
+        });
+
+    }
+
+    private void bottomSheetFillterUnit(){
+        BottomSheetChooseOption bottomSheetChooseOption = new BottomSheetChooseOption(this, "Độ khó", optionBottomSheetsFilter);
+
+        bottomSheetChooseOption.show(getSupportFragmentManager(), "unitMaterial");
+        bottomSheetChooseOption.getChooseString(new CallBackOption() {
+            @Override
+            public void chooseOption(ChooseOptionBottomSheet method, int position) {
+
+            }
+        });
 
     }
 
@@ -138,6 +190,16 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.txtLastSearch2:
                 showResult();
+                break;
+            case R.id.ll_buttom_sort_sheet:
+                bottomSheetSortUnit();
+                break;
+            case R.id.ll_buttom_fillter:
+                bottomSheetFillterUnit();
+                break;
+            case R.id.ll_buttom_view_history:
+                Intent intent = new Intent(this, ViewHistoryActivity.class);
+                startActivity(intent);
                 break;
 
         }

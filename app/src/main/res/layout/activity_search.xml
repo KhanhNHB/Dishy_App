@@ -85,6 +85,7 @@
             android:weightSum="3">
 
             <LinearLayout
+                android:id="@+id/ll_buttom_fillter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -100,10 +101,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Bộ lọc" />
+                    android:text="Độ khó" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_buttom_sort_sheet"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -123,6 +125,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_buttom_view_history"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
