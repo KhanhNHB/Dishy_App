@@ -24,6 +24,17 @@ public class Dishy implements Serializable {
         this.star = star;
     }
 
+    public Dishy(String name, String image, String time, int star, String level, int numberFavorite, Chef chef) {
+        this.name = name;
+        this.image = image;
+        this.time = time;
+        this.star = star;
+        this.level = level;
+        this.numberFavorite = numberFavorite;
+        this.chef = chef;
+    }
+
+
     public Dishy(String name, String image, String time, int star, String level, int numberFavorite) {
         this.name = name;
         this.image = image;

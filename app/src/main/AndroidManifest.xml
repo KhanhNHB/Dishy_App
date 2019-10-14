@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dishy_app">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
+
         <activity android:name=".activities.DoRecipeActivity"></activity>
+        <activity android:name=".activities.ViewHistoryActivity"></activity>
         <activity
             android:name=".activities.NotificationActivity"
             android:screenOrientation="portrait"

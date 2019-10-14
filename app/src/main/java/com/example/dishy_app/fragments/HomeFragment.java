@@ -20,6 +20,7 @@ import com.example.dishy_app.activities.RecipeActivity;
 import com.example.dishy_app.adaptes.DishyTodayAdapter;
 import com.example.dishy_app.adaptes.TopChefAdapter;
 import com.example.dishy_app.adaptes.TopDishyAdapter;
+import com.example.dishy_app.adaptes.TopFollowAdapter;
 import com.example.dishy_app.models.Chef;
 import com.example.dishy_app.models.Dishy;
 import com.example.dishy_app.models.Material;
@@ -31,11 +32,12 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView mRcvDishyToday, mRcvTopDishy, mRcvTopChef;
+    private RecyclerView mRcvDishyToday, mRcvTopDishy, mRcvTopChef, mRcvTopDishyFollow;
     private DishyTodayAdapter mDishyTodayAdapter;
     private TopDishyAdapter mTopDishyAdapter;
     private TopChefAdapter mTopChefAdapter;
-    private List<Dishy> mDishyList, mTopDishy;
+    private TopFollowAdapter mTopFollowAdapter;
+    private List<Dishy> mDishyList, mTopDishy, mDishyFollowList;
     private List<Chef> mChefs;
     private List<Material> mMaterial1, mMaterial2, mMaterial3, mMaterial4, mMaterial5, mMaterial6, mMaterial7;
     private List<StepMake> mStep1, mStep2, mStep3, mStep4, mStep5, mStep6, mStep7;
@@ -76,6 +78,10 @@ public class HomeFragment extends Fragment {
 //        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         mRcvTopChef = mView.findViewById(R.id.rcv_top_chef);
         mRcvTopChef.setLayoutManager(managerChef);
+
+        LinearLayoutManager layoutManagerFollow = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        mRcvTopDishyFollow = mView.findViewById(R.id.rcv_top_recipe_follow);
+        mRcvTopDishyFollow.setLayoutManager(layoutManagerFollow);
 
     }
 
@@ -142,6 +148,36 @@ public class HomeFragment extends Fragment {
         mChefs.add(new Chef("https://scontent.fsgn5-2.fna.fbcdn.net/v/t1.0-1/c0.0.320.320a/p320x320/10599638_1504520149789789_4487427289442049165_n.jpg?_nc_cat=107&_nc_oc=AQne8gyZOiKbnc5zvKNLPtE9JeuC3flPcvR_za52mOc-3TbE4W7PH4f7z6JNwOznFtH-JPIglXn769P5Kl4ORJ0e&_nc_ht=scontent.fsgn5-2.fna&oh=4a4dbfc66aa3a1fb5aeeefa754ce422f&oe=5E2E96E2","Nguyễn Văn Lương",20,300,mDishyList));
         mChefs.add(new Chef("https://scontent.fsgn5-4.fna.fbcdn.net/v/t1.0-1/p320x320/56922724_993070917567979_1385984228432281600_n.jpg?_nc_cat=104&_nc_oc=AQkclC0oXgatAne3ddan4uDnoLHScDDXh1r4TaQB4lHiZI5efE7WrAqUxsCP2IXJpKAKVPEx_GNkxUvsJI1k4M2u&_nc_ht=scontent.fsgn5-4.fna&oh=1811529e821ba45253c10d35236a335b&oe=5DF418A8","Dương Đức Duy ",10,100,mDishyList));
         updateUIRcvTopChef(mChefs);
+
+        Chef chef1 = new Chef("https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-1/p320x320/61090498_1285841494925963_1183091008456359936_n.jpg?_nc_cat=101&_nc_oc=AQkXDsimHahDSzxF7BS9NbBvgox8P-BAyPNh2DvJlOZdkZqhBm3KS206w5f7cw1PBneiFi6EtydeF5Gf1avxxUxS&_nc_ht=scontent.fsgn5-1.fna&oh=5092122e39724a586043169cf47d0696&oe=5E2FC72F","Nguyễn Thanh Nhàn",100,1000,mDishyList);
+        Chef chef2 = new Chef("https://scontent.fsgn5-3.fna.fbcdn.net/v/t1.0-1/p320x320/70205972_1445859698901960_6020314693128683520_n.jpg?_nc_cat=111&_nc_oc=AQlqW0sH4rpBiS2IPFfCEaorz-_7CDmDvZCV3YdL5u0-dyJcqxhMRJMtySaDEMPjS-uGvtyeUqP4ZJT4328aZLhU&_nc_ht=scontent.fsgn5-3.fna&oh=ea35b802e27df0b8c9f7bc852baec68f&oe=5E023271","Nguyễn Hoàng Bá Khánh",60,450,mDishyList);
+        Chef chef3 = new Chef("https://scontent.fsgn5-2.fna.fbcdn.net/v/t1.0-1/c0.0.320.320a/p320x320/10599638_1504520149789789_4487427289442049165_n.jpg?_nc_cat=107&_nc_oc=AQne8gyZOiKbnc5zvKNLPtE9JeuC3flPcvR_za52mOc-3TbE4W7PH4f7z6JNwOznFtH-JPIglXn769P5Kl4ORJ0e&_nc_ht=scontent.fsgn5-2.fna&oh=4a4dbfc66aa3a1fb5aeeefa754ce422f&oe=5E2E96E2","Nguyễn Văn Lương",20,300,mDishyList);
+        mDishyFollowList = new ArrayList<>();
+        mDishyFollowList.add(new Dishy("Mì cay", "https://cdn.tgdd.vn/Files/2016/07/26/863246/cach-lam-mi-cay-3-cap-do-cho-ngay-mua-them-am-bung4.jpg", "18 phút", 2, "Trung bình", 230, chef1));
+        mDishyFollowList.add(new Dishy("Lẩu gà lá giang", "https://cdn.daynauan.info.vn/wp-content/uploads/2018/07/lau-ga-la-giang.jpg", "20 phút", 3, "Dễ", 200, chef1));
+        mDishyFollowList.add(new Dishy("Hamburger thịt bò", "https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?cs=srgb&amp;dl=burger-cheeseburger-close-up-1199960.jpg&amp;fm=jpg", "Dễ", 4, "Dễ", 500, chef2));
+        mDishyFollowList.add(new Dishy("Bánh tráng trộn", "https://i.ytimg.com/vi/8lNLepEuR8I/maxresdefault.jpg", "24 phút", 5, "Khó", 100, chef3));
+        updateUIRcvDishyFollow(mDishyFollowList);
+
+
+    }
+
+
+    private void updateUIRcvDishyFollow(List<Dishy> followList){
+        if (mTopFollowAdapter == null) {
+            mTopFollowAdapter = new TopFollowAdapter(getContext(), followList);
+            mRcvTopDishyFollow.setAdapter(mTopFollowAdapter);
+            mTopFollowAdapter.setmOnDishyFollowClickListener(new TopFollowAdapter.OnDishyFollowClickListener() {
+                @Override
+                public void onClick(Dishy dishy) {
+                    Intent intent = new Intent(getContext(), RecipeActivity.class);
+                    intent.putExtra("DISHY",dishy);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            mDishyTodayAdapter.notifyDataSetChanged();
+        }
     }
 
     private void updateUIRcvDishyToDay(List<Dishy> dishyList) {
