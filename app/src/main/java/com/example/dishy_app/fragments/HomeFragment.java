@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
         mRcvTopChef = mView.findViewById(R.id.rcv_top_chef);
         mRcvTopChef.setLayoutManager(managerChef);
 
-        LinearLayoutManager layoutManagerFollow = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
+        GridLayoutManager layoutManagerFollow = new GridLayoutManager(getContext(),2);
         mRcvTopDishyFollow = mView.findViewById(R.id.rcv_top_recipe_follow);
         mRcvTopDishyFollow.setLayoutManager(layoutManagerFollow);
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private TextView txtLastSearch1;
     private TextView txtLastSearch2;
     private EditText edtSearch;
+    private ImageView mImgBack;
 
     private List<ChooseOptionBottomSheet> optionBottomSheetsFilter;
     private List<ChooseOptionBottomSheet> optionBottomSheetsSort;
@@ -62,6 +64,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private void initData() {
+        mImgBack.setOnClickListener(this);
         txtLastSearch1.setOnClickListener(this);
         txtLastSearch2.setOnClickListener(this);
         recyclerViewQuick.setOnClickListener(this);
@@ -108,6 +111,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initView() {
+        mImgBack = findViewById(R.id.img_back_search);
         txtLastSearch1 = findViewById(R.id.txtLastSearch1);
         txtLastSearch2 = findViewById(R.id.txtLastSearch2);
 
@@ -201,7 +205,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(this, ViewHistoryActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.img_back_search:finish();break;
         }
     }
 }
