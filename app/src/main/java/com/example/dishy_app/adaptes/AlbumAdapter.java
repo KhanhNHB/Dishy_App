@@ -38,7 +38,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTxtName.setText(mDishies.get(position).getName());
         holder.mTxtTime.setText(mDishies.get(position).getTime());
-        holder.mTxtOrderRecipe.setText(String.valueOf(position));
+        holder.mTxtOrderRecipe.setText(String.valueOf(position+1));
 
         Picasso.Builder builder = new Picasso.Builder(mContext);
         builder.build()

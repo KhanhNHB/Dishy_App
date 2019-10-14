@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/dp10"
         android:weightSum="10">
 
         <LinearLayout
@@ -26,12 +25,11 @@
                 android:id="@+id/txt_saved_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5"
                 android:layout_weight="4.95"
                 android:gravity="center"
                 android:text="Công thức đã lưu"
-                android:textSize="@dimen/dp20"
-                android:textStyle="bold" />
+                android:textSize="@dimen/sp18"/>
 
             <LinearLayout
                 android:id="@+id/ll_saved_recipe"
@@ -45,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/dp30"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
+            android:layout_weight="0.05"
             android:background="@color/colorMain" />
 
         <LinearLayout
@@ -59,12 +57,11 @@
                 android:id="@+id/txt_my_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5"
                 android:layout_weight="4.95"
                 android:gravity="center"
                 android:text="Công thức của tôi"
-                android:textSize="@dimen/dp20"
-                android:textStyle="bold" />
+                android:textSize="@dimen/sp18" />
 
             <LinearLayout
                 android:id="@+id/ll_my_recipe"
@@ -79,9 +76,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10"
-        android:layout_marginLeft="@dimen/dp20"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp20"
         android:background="@color/colorWhite"
-        android:layout_marginRight="@dimen/dp20"
         android:orientation="horizontal">
         <TextView
             android:text="@string/danh_s_ch_c_ng_th_c"
@@ -96,7 +93,7 @@
             android:src="@mipmap/ic_fillter"
             android:layout_weight="1"
             android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/dp35"/>
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
